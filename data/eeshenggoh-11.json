@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "eeshenggoh",
+  "risk": "3",
+  "title": "Denial of Service (DoS) Vulnerability in WETHRouter.sol Redeem Function",
+  "issueId": 11,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/11"
+}
