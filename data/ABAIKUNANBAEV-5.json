@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "3",
+  "title": "MAX_SUPPLY can be bypassed due to missing check in USDA.sol",
+  "issueId": 5,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/5"
+}
