@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "berlin-101",
+  "risk": "2",
+  "title": "TemporalGovernor.sol cannot be deployed due to changed constructor of Ownable starting OpenZeppelin v4.9",
+  "issueId": 17,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/17"
+}
