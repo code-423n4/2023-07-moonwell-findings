@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xWaitress",
+  "risk": "3",
+  "title": "supply/borrowIndex in rewardDistributor is not updated when mToken balance of a user is changed; user can easily front-run a reward accrual by depositing a lot of token to get more than his share",
+  "issueId": 21,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/21"
+}
