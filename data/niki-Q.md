@@ -1,0 +1,1 @@
+Is not a good practice to have a underline function(e.g. _mint) that is external. 
