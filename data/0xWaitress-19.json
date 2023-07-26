@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "a single emissionCap is not suitable for different tokens reward if they have different underlying decimals",
+  "issueId": 19,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/19"
+}
