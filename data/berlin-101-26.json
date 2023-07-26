@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "berlin-101",
+  "risk": "2",
+  "title": "Calling grantGuardiansPause() on TemporalGovernor.sol can brick governance that can only be escaped by revoking the guardian which removes contract pauseability",
+  "issueId": 26,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/26"
+}
