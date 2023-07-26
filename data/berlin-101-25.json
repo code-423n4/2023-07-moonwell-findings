@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "berlin-101",
+  "risk": "2",
+  "title": "Revoking the guardian of TemporalGovernor.sol contract does unpause the contract as an unexpected side effect which may put funds at risk",
+  "issueId": 25,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/25"
+}
