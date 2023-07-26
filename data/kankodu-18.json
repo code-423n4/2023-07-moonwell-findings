@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "kankodu",
+  "risk": "2",
+  "title": "borrowRateMaxMantissa should be specific to the chain protocol is being deployed to",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/18"
+}
