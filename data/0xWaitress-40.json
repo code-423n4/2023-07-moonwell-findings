@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "accrueInterest is expected to revert when the rate is higher than the maximum allowed rate, which is possible since the utilization can be more than 1",
+  "issueId": 40,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/40"
+}
