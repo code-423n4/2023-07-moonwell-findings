@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "2",
+  "title": "The current implementation allows guardian to fast track execution anytime not necessarily when the contract is paused",
+  "issueId": 49,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/49"
+}
