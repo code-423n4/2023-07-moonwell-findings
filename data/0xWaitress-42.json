@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "mToken subject to donation attack, which exploits subsequent depositor and breaks internal collateral accounting as well as relative rewardDistribution",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/42"
+}
