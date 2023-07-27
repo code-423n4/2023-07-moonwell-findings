@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "2",
+  "title": "address(this) cannot be msg.sender in TemporalGovernor.sol",
+  "issueId": 30,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/30"
+}
