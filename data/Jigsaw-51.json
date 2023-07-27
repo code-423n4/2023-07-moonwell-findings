@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Jigsaw",
+  "risk": "3",
+  "title": "getCashPrior() can be manipulated via direct token transfers, potentially leading to loss of funds",
+  "issueId": 51,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/51"
+}
