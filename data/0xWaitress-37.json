@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "utilization can be above 100% when reserve is more than cash",
+  "issueId": 37,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/37"
+}
