@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "fatherOfBlocks",
+  "risk": "2",
+  "title": "Possible admin attack on the setUnderlyingPrice() function",
+  "issueId": 45,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/45"
+}
