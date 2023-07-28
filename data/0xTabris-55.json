@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xTabris",
+  "risk": "3",
+  "title": "State variables: MultiRewardDistributor.marketConfigs  is never initialized",
+  "issueId": 55,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/55"
+}
