@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "Double-entrypoint underlying token allows market owner to withdraw underlying collateral without repaying debt",
+  "issueId": 62,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/62"
+}
