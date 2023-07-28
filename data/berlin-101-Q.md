@@ -18,3 +18,12 @@ Setting and unsetting trusted senders via the respective functions of TemporalGo
 
 # L-07 Unnecessary check for _amount > 0 in sendReward function of MultiRewardDistributor.sol
 There is already a check that returns 0 if _amount is equal to 0 (https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L1220). The datatype (uint256) does not allow negative values so the additional check for _amount > 0 (https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L1235) is unnecessary and can be removed.
+
+# L-08 Unnecessary cast of comptroller.admin() to address in MultiRewardDistributor.sol
+Here a cast is done to address: https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L126. The same check is done a few lines lower without casting to address: https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L136. The cast to address can be removed for keep consistency.
+
+# L-09 "Set the new values in storage" comments within view functions of MultiRewardDistributor.sol
+The following comments should be removed as it is only view functions: https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L348, https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L363.
+
+# L-10 Inconsistency between contracts how timestampsPerYear constant is encoded
+JumpRateModel.sol represents the state variable as an integer multiplication: https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/IRModels/JumpRateModel.sol#L20. WhitePaperInterestRateModel.sol represents the constant as a single integer (multiplication result): https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/IRModels/WhitePaperInterestRateModel.sol#L20. The same representation should be used across all contracts for consistency. The integer multiplication should be preferred. 
