@@ -13,3 +13,7 @@
 
 5) ChainlinkOracle::setAdmin should check for zero address for the parameter before updating the state 
    variable.
+
+
+6) ChainlinkCompositeOracle::getDerivedPrice() There may be tokens with 0 decimals for which the oracle 
+   will not work.
