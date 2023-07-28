@@ -17,3 +17,9 @@
 
 6) ChainlinkCompositeOracle::getDerivedPrice() There may be tokens with 0 decimals for which the oracle 
    will not work.
+
+
+7) Comptroller::mintAllowed should be until the supply cap.
+     require(nextTotalSupplies < supplyCap, "market supply cap reached");
+  should be 
+     require(nextTotalSupplies <= supplyCap, "market supply cap reached");
