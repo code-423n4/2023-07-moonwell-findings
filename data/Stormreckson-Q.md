@@ -5,9 +5,11 @@ The approve function in this code snippet is typically used by a token holder to
 
 In the given code snippet, if a user calls this approve function with their own address as the spender parameter, it will update the allowances mapping for their own address, effectively granting themselves permission to spend a certain amount of their own tokens. However, this is redundant and unnecessary since the user already has full control over their own tokens.
 
-function approve(address spender, uint rawAmount) external       returns (bool) {
-//Check if spender is token owner 
-    require(spender != msg.sender, "Self-approval is not    allowed");
+    function approve(address spender, uint rawAmount) external       
+    returns (bool) {
+    //Check if spender is token owner 
+    require(spender != msg.sender, "Self-approval is not    
+    allowed");
     
     uint96 amount;
     if (rawAmount == type(uint).max) {
@@ -23,3 +25,20 @@ function approve(address spender, uint rawAmount) external       returns (bool) 
 }
 
 By adding the `require` statement, the function will check if the spender address is different from the caller's address (msg.sender). If the condition is not met (i.e., if the spender is the same as the caller), the function will throw an exception and the approval will not be granted.
+
+2. The `WETHRouter` contract lacks Input validations 
+
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L11-L12
+
+In the `mint` function, it would be advisable to validate the `recipient` address to ensure it is a valid address. This can be done by checking that the address is not zero or the address of the contract itself.
+
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L31-L32
+
+
+In the `redeem` function, input validation can be applied in the following areas:
+   - Validate that `mTokenRedeemAmount` is not zero or exceeds the balance of the caller's mToken balance.
+   - Validate that `recipient` is a valid Ethereum address.
+   
+Adding input validation to these functions can help prevent potential issues such as invalid input values or unintended behavior.
+
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
