@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "catellatech",
+  "risk": "2",
+  "title": "When liquidateBorrowAllowed() is called from MToken.liquidateBorrowFresh(), the actualRepayAmount should be passed as parameter rather than repayAmount ",
+  "issueId": 79,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/79"
+}
