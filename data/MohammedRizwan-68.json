@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "MohammedRizwan",
+  "risk": "3",
+  "title": "In Comptroller.sol, Some setter functions access control does not meet design per documentation",
+  "issueId": 68,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/68"
+}
