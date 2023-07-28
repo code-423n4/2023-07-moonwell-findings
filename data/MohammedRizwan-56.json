@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "MohammedRizwan",
+  "risk": "2",
+  "title": "Unhandled chainlink revert would lock price oracle access",
+  "issueId": 56,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/56"
+}
