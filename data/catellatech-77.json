@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "catellatech",
+  "risk": "2",
+  "title": "It's possible to borrow, redeem, transfer tokens and exit markets in the Comptroller contract with outdated collateral prices and borrow interest",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/77"
+}
