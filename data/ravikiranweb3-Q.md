@@ -10,3 +10,6 @@
     other contract files.
 
 4)  Comptroller::nonReentrant is an unused modifier and so is the _locked storage variable.
+
+5) ChainlinkOracle::setAdmin should check for zero address for the parameter before updating the state 
+   variable.
