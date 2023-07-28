@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "Fix utilization rate computation in `WhitePaperInterestRateModel.sol` and `JumpRateModel.sol`.",
+  "issueId": 82,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/82"
+}
