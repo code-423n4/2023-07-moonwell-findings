@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ravikiranweb3",
+  "risk": "2",
+  "title": "Smart contract with receive function will be able to mint, but will never be able to redeem leading to lock up of funds",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/107"
+}
