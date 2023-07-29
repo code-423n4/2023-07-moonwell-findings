@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ravikiranweb3",
+  "risk": "3",
+  "title": "using Comptroller contract, any one can manipulate the token positions of any other user leading to a broken accounting system",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/96"
+}
