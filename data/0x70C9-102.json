@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0x70C9",
+  "risk": "2",
+  "title": "Native token check in getUnderlyingPrice is not resilient enough",
+  "issueId": 102,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/102"
+}
