@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "Incorrect chainId of Base in deploy script will force redeployment",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/114"
+}
