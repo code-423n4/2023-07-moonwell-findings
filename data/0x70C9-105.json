@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0x70C9",
+  "risk": "3",
+  "title": "TemporalGovernor can't execute proposals with native token value in them",
+  "issueId": 105,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/105"
+}
