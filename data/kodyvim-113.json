@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "kodyvim",
+  "risk": "2",
+  "title": "Borrower can frontrun liquidation with as little as 1 wei.",
+  "issueId": 113,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/113"
+}
