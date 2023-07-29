@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "When `Comptroller.sol#liquidateBorrowAllowed()` is called from `MErc20.sol#liquidateBorrow()`, the `actualRepayAmount` should be passed as parameter rather than `repayAmount`.",
+  "issueId": 95,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/95"
+}
