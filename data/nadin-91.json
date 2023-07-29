@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "`ChainlinkOracle#getChainlinkPrice()` will return the incorrect price for asset if underlying aggregator hits `minAnswer` or `maxAnswer`.",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/91"
+}
