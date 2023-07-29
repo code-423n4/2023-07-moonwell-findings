@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "petersspetrov",
+  "risk": "2",
+  "title": "`ChainlinkOracle` - `getChainlinkPrice` oracle price check is not correct",
+  "issueId": 122,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/122"
+}
