@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Sathish9098",
+  "risk": "2",
+  "title": "``admin`` may receive less token than expected because of this check  ``_amount == type(uint256).max``",
+  "issueId": 119,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/119"
+}
