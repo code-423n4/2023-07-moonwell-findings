@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Tendency",
+  "risk": "3",
+  "title": "Wrongly setting borrower's index, allows first time borrowers to receive rewards they are not entitled to",
+  "issueId": 117,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/117"
+}
