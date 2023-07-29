@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "Possible breaking of invariant in TemporalGovernor.sol results in losing guardian",
+  "issueId": 99,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/99"
+}
