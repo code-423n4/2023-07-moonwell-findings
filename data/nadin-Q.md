@@ -1,6 +1,6 @@
 # QA Report
 ## Summary
-Total 07 Low
+Total 07 Low and 03 Non-Critical
 ### Low Risk Issues
 - [L-01] CloseFactor unbounded
 - [L-02] `utilizationRate()` could DOS in both `WhitePaperInterestRateModel.sol` and `JumpRateModel.sol`
@@ -199,3 +199,20 @@ FIle: 2023-07-moonwell/src/core/MErc20.sol
 +       emit SweepToken(address(token));
     }
 ```
+### Non-Critical Issues
+- [N-01] SOLIDITY VERSION 0.8.19 CAN BE USED
+- [N-02] Include the project name and development team information in the contract to increase the popularity and trust of users in the project
+- [N-03] Use SMTChecker
+## [N-01] SOLIDITY VERSION 0.8.19 CAN BE USED
+Most contracts are using 0.8.15 or lower. Consider updating to the latest version 0.8.19 to ensure the compiler contains the latest security fixes.
+Using the more updated version of Solidity can enhance security. As described in https://github.com/ethereum/solidity/releases, Version 0.8.19 is the latest version of Solidity, which "contains a fix for a long-standing bug that can result in code that is only used in creation code to also be included in runtime bytecode". To be more secured and more future-proofed, please consider using Version 0.8.19 for the following contracts.
+https://github.com/ethereum-optimism/optimism/blob/382d38b7d45bcbf73cb5e1e3f28cbd45d24e8a59/packages/contracts-bedrock/contracts/L1/OptimismPortal.sol#L2
+
+## [N-02] Include the project name and development team information in the contract to increase the popularity and trust of users in the project
+### Recommendation: Use form like FraxFinance project
+https://github.com/FraxFinance/frxETH-public/blob/7f7731dbc93154131aba6e741b6116da05b25662/src/sfrxETH.sol#L4-L24
+
+## [N-03] Use SMTChecker
+The highest tier of smart contract behavior assurance is formal mathematical verification. All assertions that are made are guaranteed to be true across all inputs → The quality of your asserts is the quality of your verification
+
+https://twitter.com/0xOwenThurm/status/1614359896350425088?t=dbG9gHFigBX85Rv29lOjIQ&s=19
