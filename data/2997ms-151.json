@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "2997ms",
+  "risk": "2",
+  "title": "Possible DoS on ```_supportMarket``` due to lack of disposal mechanism",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/151"
+}
