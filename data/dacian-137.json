@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "dacian",
+  "risk": "2",
+  "title": "MErc20.mint() & redeem() are functionally swaps which expose users to unlimited slippage",
+  "issueId": 137,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/137"
+}
