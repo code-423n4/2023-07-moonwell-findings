@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Nyx",
+  "risk": "2",
+  "title": "Interests are not accrued for each asset inside getHypotheticalAccountLiquidityInternal",
+  "issueId": 153,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/153"
+}
