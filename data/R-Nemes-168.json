@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "R-Nemes",
+  "risk": "2",
+  "title": "Oracle will return the wrong price if the aggregator hits minAnswer",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/168"
+}
