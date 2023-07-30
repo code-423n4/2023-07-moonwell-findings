@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xbranded",
+  "risk": "3",
+  "title": "getPrice returns incorrect number of decimals",
+  "issueId": 154,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/154"
+}
