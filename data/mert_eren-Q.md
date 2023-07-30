@@ -1,0 +1,4 @@
+ChainlinkCompositeOracle.sol contract used like aggregatorV3 in chainlinkOracle.sol contract. It has latestRoundData and will be called in getPrice in chainlinkOracle. with 
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/Oracles/ChainlinkOracle.sol#L97-L113
+Which AggregatorV3Interface(feed).latestRoundData() line. So protocol assumes ChainlinkCompositeOracle.sol as AggregatorV3Interface. However, ChainlinkCompositeOracle.sol dont inherit  
+AggregatorV3Interface. There can be better to convention for inherit this interface to ChainlinkCompositeOracle.sol .
