@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "mert_eren",
+  "risk": "2",
+  "title": "no chance for use token which has decimals more than 18",
+  "issueId": 140,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/140"
+}
