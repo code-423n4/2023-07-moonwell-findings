@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Bughunter101",
+  "risk": "2",
+  "title": "`_setPendingAdmin()` does not check `if newPendingAdmin == 0`, it may cause contract can never be changed",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/157"
+}
