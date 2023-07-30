@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Mstyv3003",
+  "risk": "3",
+  "title": "_Admin variable is not properly initialized or can be changed arbitrarily, which could lead to unauthorized access to the _becomeImplementation() and resignImplementation() functions.",
+  "issueId": 149,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/149"
+}
