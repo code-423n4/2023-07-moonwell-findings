@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "RED-LOTUS-REACH",
+  "risk": "3",
+  "title": "ChainlinkOracle will return the wrong price for asset if underlying aggregator hits minAnswer",
+  "issueId": 166,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/166"
+}
