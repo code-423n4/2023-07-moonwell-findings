@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "berlin-101",
+  "risk": "2",
+  "title": "Some ERC20 tokens will not be able to be used as mToken underlying due to absent symbol() function implementation",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/175"
+}
