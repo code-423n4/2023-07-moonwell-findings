@@ -215,6 +215,122 @@ https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0
 ``sendEthReward`` function checks if ``_user`` is a contract and whether it has a payable fallback function before sending ETH.
 
 
+Contract will stop functioning in the year 2106
+Limiting the timestamp variable to fit in a uint32 will cause the call to start reverting in year 2106 for the following calls.
+
+Proof Of Concept
+File: FlywheelAcummulatedRewards.sol
+
+43: uint32 timestamp = block.timestamp.toUint32();
+
+## initializers could be front run
+
+## Lack of checks-effects-interactions
+
+## Use .call instead of .transfer to send ether
+
+## Tokens with very large decimals will not work as expected
+
+Although not common, it is possible that ERC-20 tokens have decimals() > 36. The current system acknowledges it, but does not prevent anyone from creating a position with them. This will result in the token not working as expected.
+
+## Stake function shouldn’t be accessible, when the status is paused or frozen
+
+he function stake in StRSR.sol is used by users to stake a RSR amount on the corresponding RToken to earn yield and over-collateralize the system. If the contract is in paused or frozen status, some of the main functions payoutRewards, unstake, withdraw and seizeRSR can’t be used. The stake function will keep operating but will skip to payoutRewards, this is problematic considering if the status is paused or frozen and a user stakes without knowing that. He won’t be able to unstake or call any of the core functions, the only option he has is to wait for the status to be unpaused or unfrozen.
+
+## Don’t use payable.transfer()/payable.send()
+
+## require() should be used instead of assert()
+
+## Wrong comment
+
+## Project has NPM Dependency which uses a vulnerable version : @openzeppelin
+
+## Insufficient coverage
+
+## Low-level calls that are unnecessary for the system should be avoided
+
+[L-05] Update codes to avoid Compile Errors
+Warning: Function state mutability can be restricted to pure
+   --> contracts/staking/BYTES2.sol:245:2:
+    |
+245 |   function updateReward (
+    |   ^ (Relevant source part starts here and spans across multiple lines).
+Warning: Function state mutability can be restricted to pure
+   --> contracts/staking/BYTES2.sol:261:2:
+    |
+261 |   function updateRewardOnMint (
+    |   ^ (Relevant source part starts here and spans across multiple lines).
+Warning: Contract code size is 63151 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+   --> contracts/staking/NeoTokyoStaker.sol:190:1:
+
+## Token transfer to address(0) should be avoided
+
+The internal function _beforeTokenTransfer ignores the use of address(0).
+As how it is now the two if statements won’t be triggered on address(0) and the function will finish successfully.
+
+## Signatures vulnerable to malleability attacks
+
+ecrecover() accepts as valid, two versions of signatures, meaning an attacker can use the same signature twice. Consider adding checks for signature malleability, or using OpenZeppelin’s ECDSA library to perform the extra checks necessary in order to prevent this attack.
+
+## Gas griefing/theft is possible on unsafe external call
+
+] No Storage Gap for BaseSmartAccount and ModuleManager
+
+## Strategy doesn’t have inCaseTokensGetStuck
+
+## Most Yield Farming Strategies interact with other protocols and for this reason they are subject to airdrops.
+
+Without a inCaseTokensGetStuck these extra tokens would not be claimable and would be lost forever
+
+## MaxLoss hardcoded means the contract will revert if any loss bigger than BPS happens
+
+    uint256 public withdrawMaxLoss = 1;
+Due to the logic handling of losses, and because of the value being hardcoded, the Strategy may be unable to withdraw until the value is changed.
+
+L - No check for collateral existence
+
+L-01 Incorrect Natspec
+
+ Inconsistent usage of variable naming for mint and burn functions (amount vs. value)
+
+ function mint(address account, uint256 amount) external returns (bool);
+
+    /**
+     * @notice Function to burn tokens in the Branch Chain.
+     * @param value Amount of tokens to be burned.
+     */
+    function burn(uint256 value) external;
+
+Mixed usage of uint24 and uint256 for chain ids. See examples below:
+
+Unnecessary single-line comment of multiple lines of already existing multi-line comment
+
+Add to blacklist function
+
+As stated in the project:
+
+- Is it an NFT?: true
+NFT thefts have increased recently, so with the addition of hacked NFTs to the platform, NFTs can be converted into liquidity. To prevent this, I recommend adding the blacklist function.
+
+Marketplaces such as Opensea have a blacklist feature that will not list NFTs that have been reported theft, NFT projects such as Manifold have blacklist functions in their smart contracts.
+
+Here is the project example; Manifold
+
+Manifold Contract https://etherscan.io/address/0xe4e4003afe3765aca8149a82fc064c0b125b9e5a#code
+
+     modifier nonBlacklistRequired(address extension) {
+         require(!_blacklistedExtensions.contains(extension), "Extension blacklisted");
+         _;
+     }
+Recommended Mitigation Steps
+Add to Blacklist function and modifier.
+
+
+Consider the case where totalsupply is 0
+
+decimals() not part of ERC20 standard
+
+The Contract Should approve(0) First
 
 
 
