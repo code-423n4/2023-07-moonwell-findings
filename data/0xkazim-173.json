@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xkazim",
+  "risk": "2",
+  "title": "adding newConfig with default value to the configs array in `_addEmissionConfig` function",
+  "issueId": 173,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/173"
+}
