@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "alexweb3",
+  "risk": "2",
+  "title": "Deprecated value used in oracle price function could lead to unexpected outcomes",
+  "issueId": 283,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/283"
+}
