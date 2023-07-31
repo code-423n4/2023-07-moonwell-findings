@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The _rescueFunds function allows sweeping any tokens, when it should only allow sweeping of the underlying asset",
+  "issueId": 401,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/401"
+}
