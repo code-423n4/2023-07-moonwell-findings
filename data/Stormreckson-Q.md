@@ -45,15 +45,23 @@ Adding input validation to these functions can help prevent potential issues suc
 3-
 https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
 
+The redeem function does not include any checks to ensure that the user has sufficient mToken balance before initiating the transfer.
+   - Without proper checks, it could lead to transferring more `mToken` than the user actually possesses, resulting in undesired behavior.
+
  Checks for Sufficient mToken Balance:
-   - Before executing the transfer of mToken, add a check to verify that the user has sufficient balance for the intended redemption.
+   - Before executing the transfer of `mToken`, add a check to verify that the user has sufficient balance for the intended redemption.
    - This can be done by calling `mToken.balanceOf(msg.sender)` and comparing it to the mTokenRedeemAmount parameter.
    - If the balance is insufficient, revert the transaction with an appropriate error message.
 
 4-
 https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
 
-Authorization Check for mToken Transfer:
+   - The contract assumes that the user has already approved the contract to transfer their `mToken `on their behalf.
+   - However, there is no explicit check to verify if the user has granted the necessary allowance to the contract.
+   - Without this check, the contract may attempt to transfer `mToken` without proper authorization, resulting in a failed transaction.
+
+
+Authorization Check for `mToken` Transfer:
    - Prior to attempting the transfer, add a check to verify if the user has granted the necessary allowance to the contract.
    - You can use `mToken.allowance(msg.sender, address(this))` to check the allowance granted to the contract.
    - If the allowance is insufficient, revert the transaction with an appropriate error message.
