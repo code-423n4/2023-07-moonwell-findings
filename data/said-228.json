@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "said",
+  "risk": "2",
+  "title": "`sendReward` handle incorrectly when rewards accrued bigger than current token holding, punishing big rewards holders",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/228"
+}
