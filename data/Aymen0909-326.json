@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Aymen0909",
+  "risk": "2",
+  "title": "No limit on the number of emission configs per MToken in  `MultiRewardDistributor`",
+  "issueId": 326,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/326"
+}
