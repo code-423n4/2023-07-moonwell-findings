@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "33audits",
+  "risk": "2",
+  "title": "Missing approve 0 when calling approve function may revert with certain types of tokens",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/185"
+}
