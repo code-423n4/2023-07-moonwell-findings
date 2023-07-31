@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`safe32` WILL RESTRICT THE DURATION OF `MultiRewardDistributor._addEmissionConfig` FUNCTION USABILITY",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/364"
+}
