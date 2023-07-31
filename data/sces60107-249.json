@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "sces60107",
+  "risk": "3",
+  "title": "`TemporalGovernor` cannot execute proposals with value != 0",
+  "issueId": 249,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/249"
+}
