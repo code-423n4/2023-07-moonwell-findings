@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "wahedtalash77",
+  "risk": "2",
+  "title": "## [M-07] ERC20 return values not checked",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/344"
+}
