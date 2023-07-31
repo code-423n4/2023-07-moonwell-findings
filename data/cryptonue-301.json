@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "cryptonue",
+  "risk": "2",
+  "title": "No sequencer uptime check before querying Chainlink data on Base chain (L2)",
+  "issueId": 301,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/301"
+}
