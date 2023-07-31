@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "seerether",
+  "risk": "3",
+  "title": " if _rescueFunds was called with the address of a mToken, the admin would currently be able to sweep those tokens,",
+  "issueId": 302,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/302"
+}
