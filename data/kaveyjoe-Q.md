@@ -229,4 +229,10 @@ function getUnderlyingPrice(
 By making this change, the getPrice function will handle the logic for obtaining the price, either from the overridden prices set by the admin or from the Chainlink feed.
 
 
+##  9 . TARGET : https://github.com/code-423n4/2023-07-moonwell/blob/main/test/proposals/mips/mip00.sol
+
+- In the "afterDeploy" function, the proxy admin ownership is transferred to the "governor" address, which is set to addresses.getAddress("TEMPORAL_GOVERNOR"). Transferring ownership to an external contract can be risky because it can potentially lead to unexpected changes to the contract's behavior or state. It is safer to leave the ownership with a trusted entity that is responsible for managing the proxy admin.
+
+- In the "deploy" function, there are calculations involving initialExchangeRate for each CTokenConfiguration. The calculation multiplies a value by (10 ** (token.decimals + 8)) * 2, where token.decimals is a user-provided value from the configuration. Depending on the value of token.decimals, this calculation could lead to an arithmetic overflow. It's essential to ensure that the calculated value does not exceed the maximum value representable in the target data type.
+
 
