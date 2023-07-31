@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Wrong calculation of cash available for borrow and redeem",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/204"
+}
