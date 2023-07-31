@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "alexweb3",
+  "risk": "3",
+  "title": "Missing check of how recent the price is can lead to stale price being used in the protocol",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/281"
+}
