@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "RED-LOTUS-REACH",
+  "risk": "2",
+  "title": "Medium - TemporalGovernor.sol - Governance Architecture lacks ability to manage native tokens while executing proposals",
+  "issueId": 200,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/200"
+}
