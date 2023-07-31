@@ -79,7 +79,7 @@ Using multiple oracles for price calculations is to use a ``weighted average``. 
 
 ##
 
-## [L-4] Lack of integer validations in _setEmissionCap() function leads unexpected behavior 
+## [L-4] Lack of ``integer validations`` in ``_setEmissionCap()`` function leads unexpected behavior 
 
 ### Impact
 Lack of integer validations in the _setEmissionCap() function can indeed lead to unexpected behavior and potential vulnerabilities due to human errors.Setting a very low emission cap unintentionally could limit the contract's functionality or prevent it from functioning as intended. It could also have adverse effects on token economics if the emission cap is set too low
@@ -119,7 +119,7 @@ require(_newEmissionCap > MIN && _newEmissionCap < MAX, ``Not a zero ``);
 
 ##
 
-## [L-5] Owner may set less ``total supply limit`` in updateMarketSupplyIndexInternal() 
+## [L-5] Owner may set less ``total supply limit`` in ``updateMarketSupplyIndexInternal()`` 
 
 ### Impact
 
@@ -287,7 +287,7 @@ Consider State variables instead of ``token.balanceOf(address(this))``
 
 ##
 
-## [L-11] Project has NPM Dependency which uses a vulnerable version : @openzeppelin
+## [L-11] Project has NPM Dependency which uses a vulnerable version :`` @openzeppelin``
 
 ### Impact
 
@@ -309,7 +309,7 @@ Use latest version v4.9.3
 
 ##
 
-## [L-12] Insufficient coverage
+## [L-12] ``Insufficient coverage``
 
 ```
 - What is the overall line coverage percentage provided by your tests?: 80%
@@ -377,7 +377,7 @@ Warning (2072): Warning: Unused local variable.
 
 ##
 
-## [L-14] Token transfer to address(0) should be avoided
+## [L-14] Token transfer to ``address(0)`` should be avoided
 
 ### Impact
 The external function sendReward() ignores the use of address(0).Need to check address(0) even when using ``safeTransfer``. ``safeTransfer`` is a function that is designed to prevent certain types of errors from occurring when transferring tokens. However, it does not protect against all possible errors.
@@ -433,7 +433,7 @@ require(_user!=address(0), "Zero Address");
 ```
 ##
 
-## [L-15] Deprecated Comment
+## [L-15] ``Deprecated`` Comment 
 
 ### Impact
 
@@ -451,7 +451,42 @@ https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0
 
 ##
 
-## [L-16] 
+## [L-16] Remove the ``nativeToken`` variable
+
+ This variable is no longer needed, and it could be removed from the contract
+
+```
+ /// @param _nativeToken The native token symbol, unused in this deployment so it can be anything
+
+```
+
+```solidity
+FILE: 2023-07-moonwell/src/core/Oracles/ChainlinkOracle.sol
+
+46: nativeToken = keccak256(abi.encodePacked(_nativeToken));
+
+```
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/Oracles/ChainlinkOracle.sol#L46
+
+##
+
+## [L-17] The ``setDirectPrice`` function should be modified to check the ``validity`` of the ``price`` before setting it
+
+This code first checks that the price is greater than zero. It then checks that the price is less than 1e18. If both of these checks pass, the price is set and the PricePosted event is emitted
+
+```
+- The price should be greater than zero.
+- The price should be a valid decimal number.
+- The price should not be too large or too small.
+
+```
+
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/Oracles/ChainlinkOracle.sol#L135-L138
+
+
+
+
+
 
 
 
