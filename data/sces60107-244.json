@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "sces60107",
+  "risk": "2",
+  "title": "Incorrect implementation of EIP2616 in `MErc20.mintWithPermit`",
+  "issueId": 244,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/244"
+}
