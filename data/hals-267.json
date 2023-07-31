@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "hals",
+  "risk": "3",
+  "title": "Users positions can be directly liquidated when the admin changes the `collateralFactorMantissa` from a higher value to a lower value",
+  "issueId": 267,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/267"
+}
