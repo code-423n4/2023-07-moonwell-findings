@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "solsaver",
+  "risk": "2",
+  "title": "ChainlinkOracle `admin` can be updated to `address(0)`, as there is no `address(0)` check in `setAdmin()` method.",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/178"
+}
