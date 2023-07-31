@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "kutugu",
+  "risk": "2",
+  "title": "_executeProposal does not check whether intendedRecipient is this contract may lead to double-spend",
+  "issueId": 216,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/216"
+}
