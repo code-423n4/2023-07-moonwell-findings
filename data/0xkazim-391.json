@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xkazim",
+  "risk": "2",
+  "title": "the check for the `roundId == answeredInRound` should be set to `>=` in the `ChainlinkCompositeOracle.sol#getPriceAndDecimals`",
+  "issueId": 391,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/391"
+}
