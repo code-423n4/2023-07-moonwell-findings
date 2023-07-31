@@ -57,3 +57,6 @@ Change the error messages to the following to be more differentiated according t
 - https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L405 should be: "Cannot set borrow emissions per second equal to or higher than the emission cap!"
 - https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L676 should be: "Cannot set supply speed equal to current supply speed!"
 - https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L680C13-L680C77 should be: "Cannot set supply speed equal to or higher than the emission cap!"
+
+## L-15 Wrong reference of "delegator" in _setImplementation() comments where it should be "delegate" in MErc20Delegator.sol
+The comment should be "Called by the admin to update the implementation of the delegate" instead of "Called by the admin to update the implementation of the delegator" (https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MErc20Delegator.sol#L56).
