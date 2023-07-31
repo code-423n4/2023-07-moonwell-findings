@@ -1,0 +1,2 @@
+## Low: Total WETH balance of WETHRouter can be redeemed by anyone
+Total WETH balance of WETHRouter can be redeemed by anyone who has at least 1 WAD of mToken, see [redeem](https://github.com/code-423n4/2023-07-moonwell/blob/main/src/core/router/WETHRouter.sol#L42-L63).
