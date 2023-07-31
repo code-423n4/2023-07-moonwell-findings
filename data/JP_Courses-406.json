@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "JP_Courses",
+  "risk": "2",
+  "title": "External visibility modifier on function that should be callable from address(this). Doesnt seem right.",
+  "issueId": 406,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/406"
+}
