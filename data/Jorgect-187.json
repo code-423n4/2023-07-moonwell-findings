@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Jorgect",
+  "risk": "2",
+  "title": "_setCloseFactor is missing importan checks in comptroller contract",
+  "issueId": 187,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/187"
+}
