@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "ast3ros",
+  "risk": "2",
+  "title": "Users can exit the market even when the shortfall is more than 0",
+  "issueId": 208,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/208"
+}
