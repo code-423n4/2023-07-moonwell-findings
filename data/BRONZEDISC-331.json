@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "BRONZEDISC",
+  "risk": "2",
+  "title": "Potential Stale Data Due to Inadequate Round Validation",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/331"
+}
