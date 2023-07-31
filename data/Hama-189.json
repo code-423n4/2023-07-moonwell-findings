@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Hama",
+  "risk": "2",
+  "title": "PriceOracle will use the wrong price if the Chainlink registry returns price outside min/max range",
+  "issueId": 189,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/189"
+}
