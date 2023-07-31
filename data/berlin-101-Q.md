@@ -49,3 +49,11 @@ userBorrowIndex = initialIndexConstant; //userBorrowIndex = _globalBorrowIndex;
 https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L878
 
 The commented-out code should be removed. It could get changed again and make it into production accidentally, which would change the accounting logic.
+
+Change the error messages to the following to be more differentiated according to the "<" used for the check (>= should fail) and harmonize them regarding their wording (e.g., Cannot vs. Can't):
+
+## L-14 Error messages in MultiRewardDistributor.sol regarding supply/borrow emissions and supply speed are copy pasted and, in parts, incorrect
+- https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L401 should be: "Cannot set supply emissions per second equal to or higher than the emission cap!"
+- https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L405 should be: "Cannot set borrow emissions per second equal to or higher than the emission cap!"
+- https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L676 should be: "Cannot set supply speed equal to current supply speed!"
+- https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L680C13-L680C77 should be: "Cannot set supply speed equal to or higher than the emission cap!"
