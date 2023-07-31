@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Due to lack of enough validations, a stale price might be retrieved when the AggregatorV3Interface#`latestRoundData()` would be called via the ChainlinkOracle#`getChainlinkPrice()`",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/186"
+}
