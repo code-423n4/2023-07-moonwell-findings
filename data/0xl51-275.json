@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xl51",
+  "risk": "2",
+  "title": " None of the functions calling `_executeProposal` function are payable",
+  "issueId": 275,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/275"
+}
