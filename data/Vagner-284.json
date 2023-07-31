@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Vagner",
+  "risk": "2",
+  "title": "`TemporalGovernor.sol` doesn't have a `receive` function, nor any payable function, which would make `_executeProposal` with `values` impossible ",
+  "issueId": 284,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/284"
+}
