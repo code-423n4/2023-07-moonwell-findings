@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "seerether",
+  "risk": "3",
+  "title": " Liquidator can seize more tokens than the borrower has as collateral, leading to an arithmetic underflow and locking collateral.",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/352"
+}
