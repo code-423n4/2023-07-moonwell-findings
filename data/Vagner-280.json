@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "`executeProposal` in `TemporalGovernor.sol` doesn't check if the VAA is intended for the contract called as it should",
+  "issueId": 280,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/280"
+}
