@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xComfyCat",
+  "risk": "2",
+  "title": "TemporalGovernor can't execute a proposal that sends ether since it can't receive ether",
+  "issueId": 294,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/294"
+}
