@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "markus_ether",
+  "risk": "2",
+  "title": "Missing minAnswer/maxAnswer circuit breaker in Chainlink Oracle",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/282"
+}
