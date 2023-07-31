@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Avci",
+  "risk": "2",
+  "title": "exitMarket was missing reentrancy protection. ",
+  "issueId": 355,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/355"
+}
