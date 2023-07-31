@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xkazim",
+  "risk": "3",
+  "title": "function `_queueProposal` not checking if the required time is passed to allow proposal to set to the queue list",
+  "issueId": 365,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/365"
+}
