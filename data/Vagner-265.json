@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Vagner",
+  "risk": "2",
+  "title": "`getUnderlyingPrice` used in `Comptroller.sol` expects to return 0 for stale data or errors which is not the case",
+  "issueId": 265,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/265"
+}
