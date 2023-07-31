@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "kutugu",
+  "risk": "2",
+  "title": "If guardianPauseAllowed is set to true when paused, the unpause is DOS unless call revokeGuardian",
+  "issueId": 240,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/240"
+}
