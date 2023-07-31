@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xComfyCat",
+  "risk": "2",
+  "title": "Absence of intendedRecipient Verification During Proposal Execution",
+  "issueId": 269,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/269"
+}
