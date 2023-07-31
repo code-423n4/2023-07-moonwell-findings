@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "LosPollosHermanos",
+  "risk": "2",
+  "title": "`MultiRewardDistributor.disburseSupplierRewardsInternal()` does not follow CEI pattern",
+  "issueId": 218,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/218"
+}
