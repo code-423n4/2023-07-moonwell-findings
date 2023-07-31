@@ -32,13 +32,28 @@ https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0
 
 In the `mint` function, it would be advisable to validate the `recipient` address to ensure it is a valid address. This can be done by checking that the address is not zero or the address of the contract itself.
 
-https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L31-L32
 
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
 
 In the `redeem` function, input validation can be applied in the following areas:
    - Validate that `mTokenRedeemAmount` is not zero or exceeds the balance of the caller's mToken balance.
    - Validate that `recipient` is a valid Ethereum address.
    
 Adding input validation to these functions can help prevent potential issues such as invalid input values or unintended behavior.
+  -Consider emitting events to allow for better traceability and easier debugging.
 
+3-
 https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
+
+ Checks for Sufficient mToken Balance:
+   - Before executing the transfer of mToken, add a check to verify that the user has sufficient balance for the intended redemption.
+   - This can be done by calling `mToken.balanceOf(msg.sender)` and comparing it to the mTokenRedeemAmount parameter.
+   - If the balance is insufficient, revert the transaction with an appropriate error message.
+
+4-
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/router/WETHRouter.sol#L45-L46
+
+Authorization Check for mToken Transfer:
+   - Prior to attempting the transfer, add a check to verify if the user has granted the necessary allowance to the contract.
+   - You can use `mToken.allowance(msg.sender, address(this))` to check the allowance granted to the contract.
+   - If the allowance is insufficient, revert the transaction with an appropriate error message.
