@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "jaraxxus",
+  "risk": "2",
+  "title": "ChainlinkOracle assumes that the assets of all USD denominated pair has 18 decimal places",
+  "issueId": 304,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/304"
+}
