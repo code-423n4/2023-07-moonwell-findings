@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "immeas",
+  "risk": "2",
+  "title": "`TemporalGovernor` can be bricked by `guardian`",
+  "issueId": 314,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/314"
+}
