@@ -38,6 +38,7 @@ Adding too many `mTokens` to a market can cause a unbounded for loop which will 
 ## Mitigation
 Add a limit for the number of `mTokens` supported.
 ## Affected Code
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L382
 
 # [LOW 6] Incorrect `_endTime` check in `MultiRewardDistributor._addEmissionConfig`
 ## Description
@@ -54,6 +55,22 @@ Modify a require statement in `MultiRewardDistributor._addEmissionConfig()` from
 Add a line in `MultiRewardDistributor.calculateNewIndex()` so that if supply speed is bigger than no reawrds are accrued.
 ## Affected Code 
 [`calculateNewIndex` function](https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L912)
+
+# [LOW 8] `Comptroller.seizeAllowed()` does not check that `mTokens` have correct `comptroller` address
+## Description
+In `seizeAllowed()`, there is a check that the `comptroller` address of both the collateral and borrow tokens match. However, there is no check that this address is not an arbitrary address. This will function to revert with no error code.
+
+## Mitigation
+Consider adding the following code to `seizeAllowed()`:
+```solidity
+        if (MToken(mTokenCollateral).comptroller() != address(this)) {
+            return uint(Error.COMPTROLLER_MISMATCH);
+        }
+```
+
+## Affected Code
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/Comptroller.sol#L450-L452
+
 
 # [NC 1] `MultiRewardDistributor.sendReward` is inconsistent with the project's naming convention
 ## Description
