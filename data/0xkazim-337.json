@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "0xkazim",
+  "risk": "2",
+  "title": "the `getPrice()` in ` function did not support mTokens with more than 18 decimals",
+  "issueId": 337,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/337"
+}
