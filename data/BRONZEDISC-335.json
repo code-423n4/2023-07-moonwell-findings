@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "BRONZEDISC",
+  "risk": "2",
+  "title": "Potential Exploitation due to Lack of Price Range Checks in Oracle Implementation",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/335"
+}
