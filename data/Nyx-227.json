@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Nyx",
+  "risk": "3",
+  "title": "liquidateBorrow() mTokens that do not enter the market can still be liquidated as collateral",
+  "issueId": 227,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/227"
+}
