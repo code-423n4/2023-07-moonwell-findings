@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "The whole reward distribution logic can become blocked because of out-of-gas error",
+  "issueId": 274,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/274"
+}
