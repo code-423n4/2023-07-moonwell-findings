@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "solsaver",
+  "risk": "2",
+  "title": "Chainlink’s `latestRoundData()` method may return a stale or incorrect result.",
+  "issueId": 179,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/179"
+}
