@@ -332,9 +332,6 @@ decimals() not part of ERC20 standard
 
 The Contract Should approve(0) First
 
-
-
-
 abi.encodepacked may be hash collisions 
 
 lack of sanity checks when dealing integers 
