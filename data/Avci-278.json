@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Avci",
+  "risk": "3",
+  "title": "Attacker can Steal all eths of WETHRouter.sol through redeem function ",
+  "issueId": 278,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/278"
+}
