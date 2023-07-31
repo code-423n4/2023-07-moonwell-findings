@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "said",
+  "risk": "2",
+  "title": "User can prevent liquidation by enter another market that have low supply and borrow activity",
+  "issueId": 239,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/239"
+}
