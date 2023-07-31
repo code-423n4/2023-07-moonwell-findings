@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "andy",
+  "risk": "2",
+  "title": "`MultiRewardDistributor::initialize` does not initialise some members",
+  "issueId": 257,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/257"
+}
