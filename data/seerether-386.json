@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "Overflow/underflow when creating the exchange rate Exp.",
+  "issueId": 386,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/386"
+}
