@@ -1,0 +1,8 @@
+{
+  "contest": 267,
+  "handle": "Mstyv3003",
+  "risk": "3",
+  "title": "Reentrancy Vulnerability in MErc20Delegate.sol",
+  "issueId": 229,
+  "issueUrl": "https://github.com/code-423n4/2023-07-moonwell-findings/issues/229"
+}
