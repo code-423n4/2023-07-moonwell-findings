@@ -29,9 +29,57 @@ require(
             "The _endTime parameter must be in the future!"
         );
 
+```
+##
+
+## [L-2] The ``safe32(block.timestamp)`` returns truncated values after year 2106 
+
+### Impact
+After the year 2106, the block.timestamp will continue to increment normally, but the truncated timestamp variable will reset to zero after reaching its maximum value (2^32 - 1). As a result, the timestamp variable will behave as if it's cycling every 2^32 seconds (approximately 136 years), causing it to lose track of the actual time
+
+```solidity
+FILE: 2023-07-moonwell/src/core/MultiRewardDistributor/MultiRewardDistributor.sol
+
+436: supplyGlobalTimestamp: safe32(
+                block.timestamp,
+                "block timestamp exceeds 32 bits"
+            ),
+
+442: borrowGlobalTimestamp: safe32(
+                block.timestamp,
+                "block timestamp exceeds 32 bits"
+            ),
+
+919: uint32 blockTimestamp = safe32(
+            block.timestamp,
+            "block timestamp exceeds 32 bits"
+        );
 
 ```
-## [L-2] Lack of integer validations in _setEmissionCap() function leads unexpected behavior 
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L436
+
+### Recommended Mitigation
+When even handling ``block.timestamp`` use at least ``uint128 `` to avoid unexpected behaviors 
+
+##
+
+## [L-3] Don't trust single ``oracle`` for ``price ``
+
+### Impact
+Currently protocol only uses ``Chainlink`` Oracle  for prices 
+
+You should not trust a single oracle for price calculations. There are a number of reasons why this is the case
+
+- ``Single oracles can be attacked``: If a single oracle is attacked, it could be compromised and provide incorrect price information. This could lead to significant losses for users who rely on the price information from the oracle.
+- ``Single oracles can be unreliable``: Even if a single oracle is not attacked, it could still be unreliable. This could be due to technical problems, such as network outages or hardware failures. It could also be due to human error.
+- ``Single oracles can be biased``: A single oracle could be biased towards providing certain price information. This could be due to a number of factors, such as the oracle's own financial interests or the interests of its owners.
+
+### Recommended Mitigation
+Using multiple oracles for price calculations is to use a ``weighted average``. A ``weighted average`` is a method of combining the price ``information`` from ``multiple oracles``. The weight of each oracle is based on its ``reliability``. This approach can help to ensure that the price information is ``accurate`` and ``reliable``, even if ``some of the oracles are unreliable``
+
+##
+
+## [L-4] Lack of integer validations in _setEmissionCap() function leads unexpected behavior 
 
 ### Impact
 Lack of integer validations in the _setEmissionCap() function can indeed lead to unexpected behavior and potential vulnerabilities due to human errors.Setting a very low emission cap unintentionally could limit the contract's functionality or prevent it from functioning as intended. It could also have adverse effects on token economics if the emission cap is set too low
@@ -71,7 +119,7 @@ require(_newEmissionCap > MIN && _newEmissionCap < MAX, ``Not a zero ``);
 
 ##
 
-## [L-3] Owner may set less ``total supply limit`` in updateMarketSupplyIndexInternal() 
+## [L-5] Owner may set less ``total supply limit`` in updateMarketSupplyIndexInternal() 
 
 ### Impact
 
@@ -136,7 +184,7 @@ require(currentTotalSupply >= totalMTokens, "Invalid total supply: Total supply 
 
 ##
 
-## [L-4] ``MultiRewardDistributor`` contract inherited the ``Pausable.sol`` but not actually Pausable
+## [L-6] ``MultiRewardDistributor`` contract inherited the ``Pausable.sol`` but not actually Pausable
 
 ### Impact
 MultiRewardDistributor inherits from Pausable.sol but does not actually implement the pausable functionality, it can lead to confusion and potential security risks. The Pausable pattern is used to add a pausing mechanism to a smart contract, allowing the contract owner to pause and unpause certain functions temporarily. It's used to handle emergency situations, bugs, or unexpected behavior.
@@ -156,7 +204,7 @@ https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0
 
 ##
 
-## [L-5] ``_emissionConfig.supplierIndices[_supplier]`` in some cases this will return default uint256 value 0 
+## [L-7] ``_emissionConfig.supplierIndices[_supplier]`` in some cases this will return default uint256 value 0 
 
 ### Impact
  If the ``_supplier`` is a valid address but has not yet interacted with the contract or does not have an associated index in the mapping, accessing ``_emissionConfig.supplierIndices[_supplier]`` will return the default value for ``uint256``, which is ``0``. Depending on how the contract uses this index, it may lead to incorrect calculations or undesired behavior.
@@ -176,7 +224,7 @@ One way to do this is to use the ``.contains()`` function provided by a mapping 
 
 ##
 
-## [L-6] ``calculateSupplyRewardsForUser()``, ``calculateBorrowRewardsForUser()`` functions does not explicitly check for the existence of the ``_supplier`` address in ``_emissionConfig.supplierIndices`` Mapping
+## [L-8] ``calculateSupplyRewardsForUser()``, ``calculateBorrowRewardsForUser()`` functions does not explicitly check for the existence of the ``_supplier`` address in ``_emissionConfig.supplierIndices`` Mapping
 
 ### Impact
 If the _emissionConfig.supplierIndices mapping should only contain valid addresses that have been added beforehand, it might be necessary to add additional validation to ensure that _supplier is a valid address before accessing its index in the mapping. It directly accesses ``userSupplyIndex`` from the mapping, assuming that the address exists.
@@ -192,7 +240,7 @@ Validate that the _supplier address exists in the set before accessing its index
 
 ##
 
-## [L-7] There is no guarantee that the `` _user`` address can receive ETH
+## [L-9] There is no guarantee that the `` _user`` address can receive ETH
 
 ### Impact
 There is no guarantee that ``_user`` can receive ETH directly in the ``sendReward`` function, especially if ``_user`` is a contract address or an externally owned address that does not implement a fallback function to receive ETH.
@@ -214,125 +262,204 @@ https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0
 ### Recommended Mitigation 
 ``sendEthReward`` function checks if ``_user`` is a contract and whether it has a payable fallback function before sending ETH.
 
+##
 
-Contract will stop functioning in the year 2106
-Limiting the timestamp variable to fit in a uint32 will cause the call to start reverting in year 2106 for the following calls.
+## [L-10]  Using ``token.balanceOf(address(this))`` every time this will reduce the contract performance 
 
-Proof Of Concept
-File: FlywheelAcummulatedRewards.sol
+### Impact
 
-43: uint32 timestamp = block.timestamp.toUint32();
+Using ``token.balanceOf(address(this))`` every time can potentially reduce the contract's performance. Frequent external calls to other contracts, such as reading the balance of the token contract, can be expensive in terms of gas costs and execution time. This can lead to higher transaction costs and slower contract execution.
 
-## initializers could be front run
+### POC
 
-## Lack of checks-effects-interactions
+```solidity
+FILE: Breadcrumbs2023-07-moonwell/src/core/MultiRewardDistributor/MultiRewardDistributor.sol
 
-## Use .call instead of .transfer to send ether
+480:  token.balanceOf(address(this))
 
-## Tokens with very large decimals will not work as expected
+1232: uint256 currentTokenHoldings = token.balanceOf(address(this));
 
-Although not common, it is possible that ERC-20 tokens have decimals() > 36. The current system acknowledges it, but does not prevent anyone from creating a position with them. This will result in the token not working as expected.
+```
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L1232
 
-## Stake function shouldn’t be accessible, when the status is paused or frozen
+### Recommended Mitigation
+Consider State variables instead of ``token.balanceOf(address(this))``
 
-he function stake in StRSR.sol is used by users to stake a RSR amount on the corresponding RToken to earn yield and over-collateralize the system. If the contract is in paused or frozen status, some of the main functions payoutRewards, unstake, withdraw and seizeRSR can’t be used. The stake function will keep operating but will skip to payoutRewards, this is problematic considering if the status is paused or frozen and a user stakes without knowing that. He won’t be able to unstake or call any of the core functions, the only option he has is to wait for the status to be unpaused or unfrozen.
+##
 
-## Don’t use payable.transfer()/payable.send()
+## [L-11] Project has NPM Dependency which uses a vulnerable version : @openzeppelin
 
-## require() should be used instead of assert()
+### Impact
 
-## Wrong comment
+Project mostly uses openzeppelin 4.9.0. There is latest version available 4.9.3
 
-## Project has NPM Dependency which uses a vulnerable version : @openzeppelin
+There are known issues in this version
 
-## Insufficient coverage
+ - Improper Input Validation
+ - Missing Authorization
 
-## Low-level calls that are unnecessary for the system should be avoided
+### POC
 
-[L-05] Update codes to avoid Compile Errors
-Warning: Function state mutability can be restricted to pure
-   --> contracts/staking/BYTES2.sol:245:2:
+{
+  "name": "openzeppelin-solidity",
+  "version": "4.9.0",
+
+### Recommended Mitigation 
+Use latest version v4.9.3
+
+##
+
+## [L-12] Insufficient coverage
+
+```
+- What is the overall line coverage percentage provided by your tests?: 80%
+
+```
+### Impact
+The code base, the 80% line coverage percentage means that 80% of the lines of code in the contract have been executed by the tests. This is a good start, but it is not enough to ensure that the contract is fully tested.
+
+### Recommended Mitigation
+Achieve 100% Percent lines coverage to avoid risks 
+
+##
+
+## [L-13] Update codes to avoid Unexpected behavior 
+
+There are warnings in the codebase. Try to rectify all warnings to avoid unexpected behaviors in protocol 
+
+```
+
+Warning (2519): Warning: This declaration shadows an existing declaration.
+   --> src/core/Governance/deprecated/MoonwellArtemisGovernor.sol:349:9:
     |
-245 |   function updateReward (
-    |   ^ (Relevant source part starts here and spans across multiple lines).
-Warning: Function state mutability can be restricted to pure
-   --> contracts/staking/BYTES2.sol:261:2:
+349 |         ProposalState state = state(proposalId);
+    |         ^^^^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+   --> src/core/Governance/deprecated/MoonwellArtemisGovernor.sol:372:5:
     |
-261 |   function updateRewardOnMint (
-    |   ^ (Relevant source part starts here and spans across multiple lines).
-Warning: Contract code size is 63151 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
-   --> contracts/staking/NeoTokyoStaker.sol:190:1:
-
-## Token transfer to address(0) should be avoided
-
-The internal function _beforeTokenTransfer ignores the use of address(0).
-As how it is now the two if statements won’t be triggered on address(0) and the function will finish successfully.
-
-## Signatures vulnerable to malleability attacks
-
-ecrecover() accepts as valid, two versions of signatures, meaning an attacker can use the same signature twice. Consider adding checks for signature malleability, or using OpenZeppelin’s ECDSA library to perform the extra checks necessary in order to prevent this attack.
-
-## Gas griefing/theft is possible on unsafe external call
-
-] No Storage Gap for BaseSmartAccount and ModuleManager
-
-## Strategy doesn’t have inCaseTokensGetStuck
-
-## Most Yield Farming Strategies interact with other protocols and for this reason they are subject to airdrops.
-
-Without a inCaseTokensGetStuck these extra tokens would not be claimable and would be lost forever
-
-## MaxLoss hardcoded means the contract will revert if any loss bigger than BPS happens
-
-    uint256 public withdrawMaxLoss = 1;
-Due to the logic handling of losses, and because of the value being hardcoded, the Strategy may be unable to withdraw until the value is changed.
-
-L - No check for collateral existence
-
-L-01 Incorrect Natspec
-
- Inconsistent usage of variable naming for mint and burn functions (amount vs. value)
-
- function mint(address account, uint256 amount) external returns (bool);
-
-    /**
-     * @notice Function to burn tokens in the Branch Chain.
-     * @param value Amount of tokens to be burned.
-     */
-    function burn(uint256 value) external;
-
-Mixed usage of uint24 and uint256 for chain ids. See examples below:
-
-Unnecessary single-line comment of multiple lines of already existing multi-line comment
-
-Add to blacklist function
-
-As stated in the project:
-
-- Is it an NFT?: true
-NFT thefts have increased recently, so with the addition of hacked NFTs to the platform, NFTs can be converted into liquidity. To prevent this, I recommend adding the blacklist function.
-
-Marketplaces such as Opensea have a blacklist feature that will not list NFTs that have been reported theft, NFT projects such as Manifold have blacklist functions in their smart contracts.
-
-Here is the project example; Manifold
-
-Manifold Contract https://etherscan.io/address/0xe4e4003afe3765aca8149a82fc064c0b125b9e5a#code
-
-     modifier nonBlacklistRequired(address extension) {
-         require(!_blacklistedExtensions.contains(extension), "Extension blacklisted");
-         _;
-     }
-Recommended Mitigation Steps
-Add to Blacklist function and modifier.
+372 |     function state(uint proposalId) public view returns (ProposalState) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
 
 
-Consider the case where totalsupply is 0
+Warning (3628): Warning: This contract has a payable fallback function, but no receive ether function. Consider adding a receive ether function.
+  --> src/core/MErc20Delegator.sol:11:1:
+   |
+11 | contract MErc20Delegator is MTokenInterface, MErc20Interface, MDelegatorInterface {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+Note: The payable fallback function is defined here.
+   --> src/core/MErc20Delegator.sol:496:5:
+    |
+496 |     fallback () external payable {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
 
-decimals() not part of ERC20 standard
 
-The Contract Should approve(0) First
+Warning (2462): Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+   --> src/core/Governance/deprecated/MoonwellArtemisGovernor.sol:259:5:
+    |
+259 |     constructor(
+    |     ^ (Relevant source part starts here and spans across multiple lines).
 
-abi.encodepacked may be hash collisions 
 
-lack of sanity checks when dealing integers 
+Warning (2462): Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+  --> src/core/MLikeDelegate.sol:19:3:
+   |
+19 |   constructor() public MErc20Delegate() {}
+   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Warning (2072): Warning: Unused local variable.
+  --> test/integration/LiveSystem.t.sol:66:9:
+   |
+66 |         uint256 startingTokenBalance = token.balanceOf(sender);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+```
+
+##
+
+## [L-14] Token transfer to address(0) should be avoided
+
+### Impact
+The external function sendReward() ignores the use of address(0).Need to check address(0) even when using ``safeTransfer``. ``safeTransfer`` is a function that is designed to prevent certain types of errors from occurring when transferring tokens. However, it does not protect against all possible errors.
+
+### POC
+```solidity
+FILE: 2023-07-moonwell/src/core/MultiRewardDistributor/MultiRewardDistributor.sol
+
+function sendReward(
+        address payable _user,
+        uint256 _amount,
+        address _rewardToken
+    ) internal nonReentrant returns (uint256) {
+        // Short circuit if we don't have anything to send out
+        if (_amount == 0) {
+            return _amount;
+        }
+
+        // If pause guardian is active, bypass all token transfers, but still accrue to local tally
+        if (paused()) {
+            return _amount;
+        }
+
+        IERC20 token = IERC20(_rewardToken);
+
+        // Get the distributor's current balance
+        uint256 currentTokenHoldings = token.balanceOf(address(this));
+
+        // Only transfer out if we have enough of a balance to cover it (otherwise just accrue without sending)
+        if (_amount > 0 && _amount <= currentTokenHoldings) {
+            // Ensure we use SafeERC20 to revert even if the reward token isn't ERC20 compliant
+            token.safeTransfer(_user, _amount);
+            return 0;
+        } else {
+            // If we've hit here it means we weren't able to emit the reward and we should emit an event
+            // instead of failing.
+            emit InsufficientTokensToEmit(_user, _rewardToken, _amount);
+
+            // By default, return the same amount as what's left over to send, we accrue reward but don't send them out
+            return _amount;
+        }
+    }
+
+```
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/MultiRewardDistributor/MultiRewardDistributor.sol#L1237
+
+### Recommended Mitigation
+Add ``address(0)`` check before calling ``safeTransfer()`` function 
+
+```
+require(_user!=address(0), "Zero Address");
+
+```
+##
+
+## [L-15] Deprecated Comment
+
+### Impact
+
+The comment ```/// @dev this branch should never get called as native tokens are not supported on this deployment`` is outdated and does not match the actual implementation. As mentioned earlier, nativeToken is not used in the contract, so the branch is indeed getting called and can be problematic.
+
+### POC
+
+```solidity
+FILE: 2023-07-moonwell/src/core/Oracles/ChainlinkOracle.sol
+
+62: if (keccak256(abi.encodePacked(symbol)) == nativeToken) { /// @dev this branch should never get called as native tokens are not supported on this deployment
+
+```
+https://github.com/code-423n4/2023-07-moonwell/blob/fced18035107a345c31c9a9497d0da09105df4df/src/core/Oracles/ChainlinkOracle.sol#L62
+
+##
+
+## [L-16] 
+
+
+
+
+
+
+
+
+
+
 
