@@ -43,17 +43,27 @@ It is possible to set close factor mantissa less than closeFactorMinMantissa and
 
 I recommend adding a check for the newCloseFactorMantissa parameter, restrict the input to be within the set limits
 
-# [L-04] Possible Race Condition
+# [L-04] ERC20 double spend race condition
 
-Contract MToken implements a standard approve function for the managing of the allowance. Changing an allowance with this method brings the risk that someone may use both the old and the new allowance via unfortunate transaction ordering. It can lead to user fund loss.
+Due to MToken's inheritance of ERC20’s approve function, it is vulnerable to the ERC20 approve and double spend front running attack. Briefly, an authorized spender could spend both allowances by front running an allowance-changing transaction. 
 
-I recommend Implementing decreaseAllowance and increaseAllowance functions to mitigate the risk.
+Consider implementing OpenZeppelin’s decreaseAllowance and increaseAllowance functions to help mitigate this.
+
+# [L-05] Admin Must Receive Reserves
+
+The mToken  administrator can call the _reduceReserves function to withdraw some of the reserves. However, the function enforces the receiver to be the admin
+```solidity
+
+        // doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
+        doTransferOut(admin, reduceAmount);
+```
+ This merges roles that should probably be distinct, particularly when the administrator is replaced with a 
+decentralized governance process.
+
+Consider allowing the administrator to choose the recipient in the function call.
+
+# [L-06] 
 
 
-# [N-01] Reliance on the fact that NO_ERROR = 0
-In several occasions it’s relied upon that the error value NO_ERROR is equivalent to 0.
 
-No problems detected based on this yet, but however in most locations there is an explicit check for NO_ERROR and comparing with 0 allows for possible future mistakes (especially if the enums would change).
-
-Recommend replacing 0 with the appropriate version of …NO_ERROR
-
+# [N-01] 
