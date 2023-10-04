@@ -110,7 +110,7 @@ All of the issues presented here are linked back to their original finding.
 
 # Scope
 
-The code under review can be found within the [C4 Moonwell repository](https://github.com/code-423n4/2023-07-moonwell), and is composed of 15 smart contracts written in the Solidity programming language and includes 3569 lines of Solidity code.
+The code under review can be found within the [C4 Moonwell repository](https://github.com/code-423n4/2023-07-moonwell), and is composed of 15 smart contracts written in the Solidity programming language and includes 3,569 lines of Solidity code.
 
 # Severity Criteria
 
